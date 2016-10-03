@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Park&Go</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            background-color: #ffcc00;
+            color: #000000;
+            padding: 100px 25px;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #ffcc00;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+        }
+
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #000000 !important;
+        }
+
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            color: #ffcc00 !important;
+            background-color: #000000 !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #000000 !important;
+        }
+
+        .img-centered {
+          margin:0 auto;
+          display: block;
+        }
+
+        #logo {
+          padding-top: 5px;
+
+        }
+        .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+        }
+        .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    {{> navbar }}
+    <div class="container-fluid">
+        {{{ body }}}
+    </div>
+    <!-- SCRIPTS -->
+    <script>
+        $(document).ready(function() {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage' ] ").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== " ") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function() {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        })
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
